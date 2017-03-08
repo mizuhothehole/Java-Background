@@ -1,5 +1,5 @@
 Using Inner Class And Inner Interface
-
+This is the function of a inner class with no name
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -77,4 +77,112 @@ public class InterfaceTest {
     interface CallBack {
     void makeText(int a);
 }
+}
+
+this is the function of a interface and is made in two classes
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package interfacetest;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author user
+ */
+public class InterfaceTest {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    
+   
+        
+        // TODO code application logic here
+        System.out.println("main process start");
+        TextMaker tm = new TextMaker();
+        tm.initialize();
+                    tm.makethis(new CallBack(){
+                @Override
+                public void makeText(int mm) {
+                         System.out.println(mm);   
+                }
+                
+            });
+        for (CallBack cb : tm.mCallBackList){
+            cb.makeText(1);
+
+        }
+ 
+    }
+    interface CallBack {
+    void makeText(int a);
+}
+}
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package interfacetest;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author user
+ */
+public class TextMaker {
+    private static final String START_TEXT = "Start Of the text";
+    private static final String END_TEXT = "End Of the text";
+    private static final int PRINT_TIMES = 2;
+    private static final int START_int = 1000000000;
+    private static final int END_int = 1111111111;
+    public List<InterfaceTest.CallBack> mCallBackList;
+    public List<InterfaceTest.CallBack> newCallBackList;
+
+    private void addCallBackForStartText(){
+        InterfaceTest.CallBack callback = new InterfaceTest.CallBack(){
+            @Override
+            public void makeText(int a) {
+                a = START_int;
+                System.out.println(++a);
+            }
+            
+        };
+        mCallBackList.add(callback);
+    }
+    void makethis(InterfaceTest.CallBack callback){
+        callback.makeText(END_int);
+    }
+        private void addCallBackForEndText(){
+        InterfaceTest.CallBack callback = new InterfaceTest.CallBack(){
+            @Override
+            public void makeText(int a) {
+                a = END_int;
+                System.out.println(--a);
+            }
+            
+        };
+        mCallBackList.add(callback);
+    }
+        
+    public void initialize(){
+        mCallBackList = new ArrayList<InterfaceTest.CallBack>();
+        System.out.println(mCallBackList.size());
+        this.addCallBackForStartText();
+        for(int i = 0; i < PRINT_TIMES; i++){
+            this.addCallBackForEndText();
+        }
+
+        System.out.println(mCallBackList.size());
+    }
+
 }
