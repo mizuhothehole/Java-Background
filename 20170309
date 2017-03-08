@@ -1,0 +1,80 @@
+Using Inner Class And Inner Interface
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package interfacetest;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author user
+ */
+public class InterfaceTest {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+    class TextMaker {
+    private static final String START_TEXT = "Start Of the text";
+    private static final String END_TEXT = "End Of the text";
+    private static final int PRINT_TIMES = 2;
+    private static final int START_int = 1000000000;
+    private static final int END_int = 1111111111;
+    public List<CallBack> mCallBackList;
+    public List<CallBack> newCallBackList;
+
+    private void addCallBackForStartText(){
+        CallBack callback = new CallBack(){
+            @Override
+            public void makeText(int a) {
+                a = START_int;
+                System.out.println(++a);
+            }
+            
+        };
+        mCallBackList.add(callback);
+    }
+        private void addCallBackForEndText(){
+        CallBack callback = new CallBack(){
+            @Override
+            public void makeText(int a) {
+                a = END_int;
+                System.out.println(--a);
+            }
+            
+        };
+        mCallBackList.add(callback);
+    }
+        
+    public void initialize(){
+        mCallBackList = new ArrayList<CallBack>();
+        System.out.println(mCallBackList.size());
+        this.addCallBackForStartText();
+        for(int i = 0; i < PRINT_TIMES; i++){
+            this.addCallBackForEndText();
+        }
+
+        System.out.println(mCallBackList.size());
+    }
+
+}
+        
+        // TODO code application logic here
+        System.out.println("main process start");
+        TextMaker tm = new TextMaker();
+        tm.initialize();
+        for (CallBack cb : tm.mCallBackList){
+            cb.makeText(1);
+        }
+    }
+    interface CallBack {
+    void makeText(int a);
+}
+}
