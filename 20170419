@@ -8,3 +8,27 @@ a & b = 1；
 a 丨 b ＝ 1；
 a ^ b = 0；
 
+the condition of boolean：
+boolean a = true；
+boolean b = true；
+a & b = true；
+a 丨 b ＝ true；
+a ^ b = false；
+
+
+
+using the ~
+~0
+0丨0000000->
+1丨1111111->
+1丨0000000->
+1丨0000001->
+-1
+
+~2
+0丨0000010->
+1丨1111101->
+1丨0000010->
+1丨0000011->
+-3
+
