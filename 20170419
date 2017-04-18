@@ -1,0 +1,10 @@
+java ＆ ^ 丨
+
+this can be used in the condition of int（0，1） or boolean（true，false） logic. 
+the condition of int：
+int a = 1；
+int b = 1；
+a & b = 1；
+a 丨 b ＝ 1；
+a ^ b = 0；
+
