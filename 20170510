@@ -1,6 +1,6 @@
 Java Test Class Struct
 XXXTest.java
-    innerClassSceneProvider（clasd method UT）.
+    innerClassSceneProvider（class having method to provide UT datas of DB）.
         Test1SceneDatamaker
         Test2SceneDatamaker
         Test3SceneDatamaker
