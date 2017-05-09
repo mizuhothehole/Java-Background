@@ -1,4 +1,4 @@
-Java Test Class Struct
+Java Test Class Struct under JUnit
 XXXTest.java
     innerClassSceneProvider（class having method to provide UT datas of DB）.
         Test1SceneDatamaker
