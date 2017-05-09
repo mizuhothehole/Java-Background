@@ -1,0 +1,43 @@
+Java Test Class Struct
+XXXTest.java
+    innerClassSceneProvider（clasd method UT）.
+        Test1SceneDatamaker
+        Test2SceneDatamaker
+        Test3SceneDatamaker
+        ...
+        TestNSceneDatamaker
+        
+    private static final datas
+    private class instantances
+    private methods for peocess efficency
+    beforeClass
+        class instances initialize
+    before（optional）
+        class instances initialize
+    afterClass
+        class instances terminate
+    after（optional）
+        class instances terminate
+    Test1
+        Test1DataMaker.makeData（）
+        testCode including API test points we want for test1
+        Assert...data
+        Asserr...exception
+    Test2
+        Test2DataMaker.makeData（）
+        testCode including API test points we want for test2
+        Assert...data
+        Asserr...exception
+    Test3
+        Test3DataMaker.makeData（）
+        testCode including API test points we want for test3
+        Assert...data
+        Asserr...exception
+    ...
+    TestN
+        TestNDataMaker.makeData（）
+        testCode including API test points we want for testN
+        Assert...data
+        Asserr...exception
+    
+    
