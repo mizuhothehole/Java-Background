@@ -1,0 +1,14 @@
+Heap leak and java out of memory 
+1.The relationship between heap leak and java outofmomery exception.
+A lot of heap leak may lead to outofmomery exception.But the outofmomery exception will always be solved by adding xms and xmx of jvm currently.But if we always do not care about the leak ,the jvm will always be outofmomery.
+
+2.why heap leak happens.
+In java the CG is designed to clear the memory in heap. And the reason of leap clear is some objects do not have any dependency by other objects.However somerset even we do not use the object again,the dependency is still alive in java.As a result,the CG will never recycle the objects.Also programmer do not know why it leaked.
+
+The reasons of leak is below :
+1.Java container not setting null or inner elements are changed.
+2.The single mode object having dependency and dependented object will never be recycled.
+3.Fortitude to codes stream or database after stream or database operation.
+4.Some outside modules are not correctly terminated.
+5.The static fields are too much
+6.Some fields in class are not correctly used ,using long-life circle objects in short life-circle methods and did not release the object correctly.
