@@ -1,4 +1,4 @@
-Java Throwable Learning
+Java Throwable Structure
 
 Java编程语言里面的关于异常的详细的学习。首先java里面的异常是一种对象，都是继承自Throwable的。在这个前提之下又可以分为两类，
 一类是Error，另一类则是Exception。Java虚拟机自己自动抛出的是我们所说的系统Error和RuntimeException。
