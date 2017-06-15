@@ -8,7 +8,7 @@ Java编程语言里面的关于异常的详细的学习。首先java里面的异
 
 首先是所谓的Throwable了。这个东西就是可能让Java程序终止的东西，其实我们用一个catch Throwable语句就能把这个东西全搞定，一个异常也没有。可是我们不能。为啥，因为我们要做业务做逻辑。是不是啊。所以，人家Java大神们就给我们分类了。首先是Error，继承自Throwable。这个东西就是高速我们，Error一定是不能出的。因为Error出来了就是系统的问题，属于系统Error。然后就是我们亲切的RuntimeException了。这个人家写Java的说了，有Exception也能编译过。可是这个东西跑起来的时候，自己去找原因吧。好，说的也对。不然招我们这些程序猿干嘛，不就是给他们这些人处理这所谓的RuntimeException么。这个是属于所谓的不可check的异常，编译期可以过的。然后就是剩下的可check异常。这类异常就是，你要是不catch出来或者是throw掉，人家就不让你过编译。你编译都过不了，class文件都没有你能干什么呢。不过呢，我们不管怎么着把，只要写个catch Throw世界就清净了不是么。我们每天整那些歌RuntimeException，不就是为了能够提升质量么。
 
-好，下面进行分类吧。
+好，下面进行分类吧。 
 
 Throwable----Error    -----------VirtualMachineError----------StackOverFlowError
                                                     -----------OutOfMemoryError
