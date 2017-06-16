@@ -36,7 +36,7 @@ public class ThreadSampleMain {
 Sample Thread Drinking Tea
 */
 public class ThreadDrinkTea extends Thread {
-	boolean run = false;
+	volatile boolean run = false;
 
 	@Override
 	public synchronized void run() {
@@ -62,7 +62,7 @@ public class ThreadDrinkTea extends Thread {
 Sample Thread Watch TV
 */
 public class ThreadWatchingTV extends Thread {
-	boolean run = false;
+	volatile boolean run = false;
 
 	@Override
 	public synchronized void run() {
