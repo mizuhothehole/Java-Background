@@ -53,3 +53,7 @@ Main accessed
 Disconnected from the target VM, address: '127.0.0.1:50040', transport: 'socket'
 
 Process finished with exit code 0
+
+
+difference between Class.forname and Class.forname.newinstance
+forname will load and link in memory. meaning it will load the static statements
