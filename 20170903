@@ -57,3 +57,62 @@ Process finished with exit code 0
 
 difference between Class.forname and Class.forname.newinstance
 forname will load and link in memory. meaning it will load the static statements
+
+See more:
+
+public class Main{
+    public static void main(String[] args){
+        System.out.printf("Main accessed\n");
+        Rectangle r = (Rectangle)Factory.createObj(Rectangle.class);
+        Round rd = (Round)Factory.createObj(Round.class);
+        r.draw();
+        rd.draw();
+        try {
+            Factory.createObjByName("Rectangle").newInstance().draw();
+            Factory.createObjByName("Round").newInstance().draw();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+public class Factory {
+    static Object createObj(Class<? extends Draw> clazz) {
+        Object object = null;
+        try {
+            object = Class.forName(clazz.getName()).newInstance();
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return object;
+    }
+
+    static Class<? extends Draw> createObjByName(String str) {
+        if ("Round".equals(str)) {
+            Class<? extends Draw> cs = null;
+            try {
+                cs = (Class<? extends Draw>) Class.forName(str);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            return cs;
+        }
+
+        if ("Rectangle".equals(str)) {
+            Class<? extends Draw> cs = null;
+            try {
+                cs = (Class<? extends Draw>) Class.forName(str);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            return cs;
+        }
+
+        return null;
+    }
+}
+
+
