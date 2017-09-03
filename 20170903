@@ -1,0 +1,55 @@
+Java工厂模式
+
+public class Main{
+    public static void main(String[] args){
+        System.out.printf("Main accessed\n");
+        Rectangle r = (Rectangle)Factory.createObj(Rectangle.class);
+        Round rd = (Round)Factory.createObj(Round.class);
+        r.draw();
+        rd.draw();
+    }
+}
+
+public interface Draw {
+    void draw();
+}
+
+public class Factory {
+    static Object createObj(Class<? extends Draw> clazz) {
+        Object object = null;
+        try {
+            object = Class.forName(clazz.getName()).newInstance();
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return object;
+    }
+}
+
+public class Rectangle implements Draw {
+    @Override
+    public void draw() {
+        System.out.println(111111);
+    }
+}
+
+
+
+public class Round implements Draw {
+    @Override
+    public void draw() {
+        System.out.println(222222);
+    }
+}
+
+
+
+-------------OUTPUT------------------
+"C:\Program Files (x86)\Java\jdk1.8.0_144\bin\java" -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:50040,suspend=y,server=n -Dfile.encoding=UTF-8 -classpath "C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\charsets.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\deploy.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\access-bridge-32.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\cldrdata.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\dnsns.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\jaccess.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\jfxrt.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\localedata.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\nashorn.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunec.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunjce_provider.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunmscapi.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunpkcs11.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\zipfs.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\javaws.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jce.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jfr.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jfxswt.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jsse.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\management-agent.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\plugin.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\resources.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\rt.jar;C:\Users\石井绫\IdeaProjects\untitled1\out\production\untitled1;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2017.2.3\lib\idea_rt.jar" Main
+Connected to the target VM, address: '127.0.0.1:50040', transport: 'socket'
+Main accessed
+111111
+222222
+Disconnected from the target VM, address: '127.0.0.1:50040', transport: 'socket'
+
+Process finished with exit code 0
