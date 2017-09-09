@@ -1,0 +1,147 @@
+Abstract Factory
+
+-----------------------
+
+public abstract class AbstractFactory {
+    abstract Color getColor(Class<? extends Color> clazz);
+    abstract Shape getShape(Class<? extends Shape> clazz);
+}
+
+-----------------------
+
+public class Black implements Color {
+    @Override
+    public void draw() {
+        System.out.printf("black drawn!");
+    }
+}
+
+-------------------------
+
+public interface Color {
+    void draw();
+}
+
+-----------------------------
+
+public class ColorFactory extends AbstractFactory{
+
+    @Override
+    Color getColor(Class<? extends Color> clazz) {
+        try {
+            return (Color) Class.forName(clazz.getName()).newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    Shape getShape(Class<? extends Shape> clazz) {
+        return null;
+    }
+}
+
+------------------------------------------------
+
+public class Demo {
+    public static void main(String[] args){
+        FactoryProducer.produceFactory("sHAPE").getShape(Round.class).draw();
+        FactoryProducer.produceFactory("sHAPE").getShape(Rectangle.class).draw();
+        FactoryProducer.produceFactory("COLor").getColor(Black.class).draw();
+        FactoryProducer.produceFactory("COLor").getColor(Yellow.class).draw();
+        FactoryProducer.produceFactory("COLor").getColor(Red.class).draw();
+    }
+}
+
+-------------------------------------------------
+
+public class FactoryProducer {
+    static AbstractFactory produceFactory(String str){
+        if("Color".equalsIgnoreCase(str)){
+            return new ColorFactory();
+        }else if("Shape".equalsIgnoreCase(str)){
+            return new ShapeFactory();
+        }
+        return null;
+    }
+}
+
+----------------------------------------------------
+
+public class Rectangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.printf("rectangle drawn!");
+    }
+}
+
+----------------------------------------------------
+
+public class Red implements Color{
+    @Override
+    public void draw() {
+        System.out.printf("red drawn!");
+    }
+}
+
+-------------------------------------------------
+
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
+public class Round implements Shape {
+    @Override
+    public void draw() {
+        System.out.printf("round drawn!");
+    }
+}
+
+----------------------------------------------
+
+public interface Shape {
+    void draw();
+}
+
+------------------------------------------------
+
+public class ShapeFactory extends AbstractFactory{
+    @Override
+    Shape getShape(Class<? extends Shape> clazz) {
+        try {
+            return (Shape) Class.forName(clazz.getName()).newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    Color getColor(Class<? extends Color> clazz) {
+        return null;
+    }
+}
+
+--------------------------------------------------
+
+public class Yellow implements Color {
+    @Override
+    public void draw() {
+        System.out.printf("yellow drawn!");
+    }
+}
+
+----------------------------------------------
+
+fianlly, we can see the output like this:
+
+round drawn!rectangle drawn!black drawn!yellow drawn!red drawn!
+
+
