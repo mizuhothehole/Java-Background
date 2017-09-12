@@ -1,0 +1,53 @@
+When will java static blockes run
+
+Test java static blockes in JVM
+
+TestClass.java
+
+class TestClass{
+
+// static code block to run
+static{
+  System.out.printf("static code block called");
+}
+
+// constructor without any parameters
+TestClass(){
+}
+
+}
+
+MainClass.java
+
+class MainClass{
+
+public static void main(){
+
+try{
+System.out.printf("load class start");
+ClassLoader.getSystemLoader.loadClass(TestClass.class.getName())
+System.out.printf("load class end");
+}catch(Exception e){
+}
+
+try{
+System.out.printf("initialize class start");
+TestClass testClass = ClassLoader.getSystemLoader.loadClass(TestClass.class.getName()).loadClass();
+System.out.printf("initialize class end");
+}catch(Exception e){
+}
+
+}
+
+}
+
+The log output will be like:
+load class start
+load class end
+initialize class start
+static code block called
+initialize class end
+
+So the result is:
+The initialize of the class will run the static blocks.
+But the load of the class will not run the static blocks.
