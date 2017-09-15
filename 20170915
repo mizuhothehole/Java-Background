@@ -1,0 +1,51 @@
+test about || adn |, && and &
+
+public static void main(String[] args) {
+        boolean f = false;
+        boolean t = true;
+        System.out.print(f & f);
+        System.out.print(t & t);
+        System.out.print(f & t);
+        System.out.print(t & f);
+
+        System.out.print(f && f);
+        System.out.print(t && t);
+        System.out.print(f && t);
+        System.out.print(t && f);
+
+        long num = 312;
+
+        long start2 = System.currentTimeMillis();
+
+        for (int i = 0; i < 1000000000; i++) {
+            if (f || f)
+                num = num * 100;
+            if (t || t)
+                num = num / 100;
+            if (f || t)
+                num = num * 100;
+            if (t || f)
+                num = num / 100;
+        }
+
+        System.out.print("" + (System.currentTimeMillis() - start2) + "-------");
+
+        long start1 = System.currentTimeMillis();
+
+        for (int i = 0; i < 1000000000; i++) {
+            if (f | f)
+                num = num * 100;
+            if (t | t)
+                num = num / 100;
+            if (f | t)
+                num = num * 100;
+            if (t | f)
+                num = num / 100;
+        }
+
+        System.out.print("" + (System.currentTimeMillis() - start1) + "-------");
+
+
+    }
+
+falsetruefalsefalsefalsetruefalsefalse4547-------4520-------
