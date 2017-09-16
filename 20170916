@@ -1,0 +1,83 @@
+The result of some JVM testings
+
+// I think it is not a good way to use the "+" to link strings.
+// However the best way is to use the concat as  it is working so fast
+public class MainMind {
+    public static void main1(String[] str) {
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 1000000; i++) {
+            StringBuffer buffer = new StringBuffer();
+            buffer.append("a");
+            buffer.append("b");
+            buffer.append("c");
+            buffer.append("d");
+            buffer.append("e");
+        }
+
+        System.out.printf("" + (System.currentTimeMillis() - start));
+        System.out.printf("%%%%%%%%%%%%");
+        start = System.currentTimeMillis();
+        for (int i = 0; i < 1000000; i++) {
+            StringBuilder builder = new StringBuilder();
+            builder.append("a");
+            builder.append("b");
+            builder.append("c");
+            builder.append("d");
+            builder.append("e");
+        }
+        System.out.printf("" + (System.currentTimeMillis() - start));
+        System.out.printf("%%%%%%%%%%%%");
+        start = System.currentTimeMillis();
+        for (int i = 0; i < 1000000; i++) {
+            String string = "";
+            string = string.concat("a");
+            string = string.concat("b");
+            string = string.concat("c");
+            string = string.concat("d");
+            string = string.concat("e");
+        }
+        System.out.printf("" + (System.currentTimeMillis() - start));
+        System.out.printf("%%%%%%%%%%%%");
+
+        start = System.currentTimeMillis();
+        for (int i = 0; i < 1000000; i++) {
+            String string = "";
+            string = string + "a";
+            string = string + "b";
+            string = string + "c";
+            string = string + "d";
+            string = string + "e";
+        }
+        System.out.printf("" + (System.currentTimeMillis() - start));
+        System.out.printf("%%%%%%%%%%%%");
+    }
+
+    // The concat method will return a new object representing the result, but the buffer and the builder will make changes
+    // around themselves
+    public static void main2(String[] str) {
+        String s = "";
+        String b = s.concat("asasas");
+        String c = b + "asas";
+        System.out.printf(b);// this will print asasas only, as it did not change it self
+    }
+
+    // So I also showed in fact the and or we should only use the && and || when we want to calculate something.
+
+    // to see how the "{" and the "}" effect the calculating in our daily work
+    public static void main3(String[] str) {
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 100000000; i++)
+            Math.abs(4324234);
+        System.out.printf("" + (System.currentTimeMillis() - start));
+        System.out.printf("%%%%%%%%%%");
+
+        start = System.currentTimeMillis();
+        for (int i = 0; i < 100000000; i++) {
+            Math.abs(4324234);
+        }
+        System.out.printf("" + (System.currentTimeMillis() - start));
+
+    }
+}
+
+So here we seem to see that in fact the changes are so small, and I prefer to use the concat to do the string links as tested.
