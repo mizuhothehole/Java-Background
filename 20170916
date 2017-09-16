@@ -81,3 +81,80 @@ public class MainMind {
 }
 
 So here we seem to see that in fact the changes are so small, and I prefer to use the concat to do the string links as tested.
+
+同时我也写了一些意味不明的代码像这个样子:
+
+public class ThreadTest {
+    static int a;
+    static AA b = new AA((int) 0);
+
+    static public void main(String[] str) {
+        Thread thread1 = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                for (int c = 1; c < 100; c++) {
+                    a = a + 1;
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    b.a = b.a + 1;
+                }
+            }
+        });
+
+        Thread thread2 = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                for (int c = 1; c < 100; c++) {
+                    a = a + 2;
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    b.a = b.a + 2;
+                }
+
+            }
+        });
+
+        Thread thread3 = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(300);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.printf("$$$" + a + "%n");
+                    System.out.printf("###" + b.get() + "%n");
+                }
+            }
+        });
+        thread3.run();
+        thread1.run();
+        thread2.run();
+
+    }
+
+    static class AA {
+        AA(int bb) {
+            this.a = bb;
+        }
+
+        int a;
+
+        int get() {
+            return a;
+        }
+
+        ;
+    }
+}
+
