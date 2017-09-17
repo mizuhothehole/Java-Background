@@ -1,0 +1,136 @@
+The JVM properties using System
+
+源代码：
+
+import java.util.Set;
+
+public class ThreadMan {
+    public static void main(String[] str){
+        Set<String> a=  System.getProperties().stringPropertyNames();
+        for(String s : a){
+            System.out.printf(s);
+            System.out.printf(": ");
+            System.out.printf(System.getProperties().getProperty(s));
+            System.out.printf("%n");
+        }
+    }
+}
+
+"C:\Program Files (x86)\Java\jdk1.8.0_144\bin\java" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2017.2.3\lib\idea_rt.jar=52173:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2017.2.3\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\charsets.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\deploy.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\access-bridge-32.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\cldrdata.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\dnsns.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\jaccess.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\jfxrt.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\localedata.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\nashorn.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunec.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunjce_provider.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunmscapi.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunpkcs11.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\zipfs.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\javaws.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jce.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jfr.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jfxswt.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jsse.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\management-agent.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\plugin.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\resources.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\rt.jar;C:\Users\石井绫\IdeaProjects\untitled3\out\production\untitled3" ThreadMan
+java.runtime.name: Java(TM) SE Runtime Environment
+sun.boot.library.path: C:\Program Files (x86)\Java\jdk1.8.0_144\jre\bin
+java.vm.version: 25.144-b01
+user.country.format: CN
+java.vm.vendor: Oracle Corporation
+java.vendor.url: http://java.oracle.com/
+path.separator: ;
+java.vm.name: Java HotSpot(TM) Client VM
+file.encoding.pkg: sun.io
+user.script: 
+user.country: JP
+sun.java.launcher: SUN_STANDARD
+sun.os.patch.level: Service Pack 1
+java.vm.specification.name: Java Virtual Machine Specification
+user.dir: C:\Users\XXX\IdeaProjects\untitled3
+java.runtime.version: 1.8.0_144-b01
+java.awt.graphicsenv: sun.awt.Win32GraphicsEnvironment
+java.endorsed.dirs: C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\endorsed
+os.arch: x86
+java.io.tmpdir: C:\Users\XXX\AppData\Local\Temp\
+line.separator: 
+
+java.vm.specification.vendor: Oracle Corporation
+user.variant: 
+os.name: Windows 7
+sun.jnu.encoding: GBK
+java.library.path: C:\Program Files (x86)\Java\jdk1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;.
+java.specification.name: Java Platform API Specification
+java.class.version: 52.0
+sun.management.compiler: HotSpot Client Compiler
+os.version: 6.1
+user.home: C:\Users\XXX
+user.timezone: 
+java.awt.printerjob: sun.awt.windows.WPrinterJob
+file.encoding: UTF-8
+java.specification.version: 1.8
+user.name: XXX
+java.class.path: C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\charsets.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\deploy.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\access-bridge-32.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\cldrdata.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\dnsns.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\jaccess.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\jfxrt.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\localedata.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\nashorn.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunec.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunjce_provider.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunmscapi.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunpkcs11.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\zipfs.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\javaws.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jce.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jfr.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jfxswt.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jsse.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\management-agent.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\plugin.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\resources.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\rt.jar;C:\Users\石井绫\IdeaProjects\untitled3\out\production\untitled3;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2017.2.3\lib\idea_rt.jar
+java.vm.specification.version: 1.8
+sun.arch.data.model: 32
+java.home: C:\Program Files (x86)\Java\jdk1.8.0_144\jre
+sun.java.command: ThreadMan
+java.specification.vendor: Oracle Corporation
+user.language: ja
+user.language.format: zh
+awt.toolkit: sun.awt.windows.WToolkit
+java.vm.info: mixed mode
+java.version: 1.8.0_144
+java.ext.dirs: C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext;C:\Windows\Sun\Java\lib\ext
+sun.boot.class.path: C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\resources.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\rt.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\sunrsasign.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jsse.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jce.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\charsets.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jfr.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\classes
+java.vendor: Oracle Corporation
+file.separator: \
+java.vendor.url.bug: http://bugreport.sun.com/bugreport/
+sun.cpu.endian: little
+sun.io.unicode.encoding: UnicodeLittle
+sun.desktop: windows
+sun.cpu.isalist: pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86
+
+Process finished with exit code 0
+
+import java.util.Map;
+
+public class ThreadMan {
+    public static void main(String[] str){
+      Map<String, String> a=  System.getenv();
+        for(String s : a.keySet()){
+            System.out.printf(s);
+            System.out.printf(": ");
+            System.out.printf(System.getenv().get(s));
+            System.out.printf("%n");
+        }
+    }
+}
+
+"C:\Program Files (x86)\Java\jdk1.8.0_144\bin\java" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2017.2.3\lib\idea_rt.jar=52422:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2017.2.3\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\charsets.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\deploy.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\access-bridge-32.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\cldrdata.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\dnsns.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\jaccess.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\jfxrt.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\localedata.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\nashorn.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunec.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunjce_provider.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunmscapi.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\sunpkcs11.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\ext\zipfs.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\javaws.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jce.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jfr.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jfxswt.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\jsse.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\management-agent.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\plugin.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\resources.jar;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\lib\rt.jar;C:\Users\石井绫\IdeaProjects\untitled3\out\production\untitled3" ThreadMan
+LOCALAPPDATA: C:\Users\XXX\AppData\Local
+PROCESSOR_LEVEL: 6
+FP_NO_HOST_CHECK: NO
+USERDOMAIN: XXX-PC
+LOGONSERVER: \\XXX-PC
+SESSIONNAME: Console
+ALLUSERSPROFILE: C:\ProgramData
+PROCESSOR_ARCHITECTURE: x86
+PSModulePath: C:\Windows\system32\WindowsPowerShell\v1.0\Modules\
+SystemDrive: C:
+APPDATA: C:\Users\XXX\AppData\Roaming
+USERNAME: XXX
+windows_tracing_logfile: C:\BVTBin\Tests\installpackage\csilogfile.log
+ProgramFiles(x86): C:\Program Files (x86)
+VBOX_MSI_INSTALL_PATH: C:\Program Files\Oracle\VirtualBox\
+CommonProgramFiles: C:\Program Files (x86)\Common Files
+Path: C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\
+PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+OS: Windows_NT
+PROCESSOR_ARCHITEW6432: AMD64
+windows_tracing_flags: 3
+COMPUTERNAME: XXX-PC
+PROCESSOR_REVISION: 4501
+CommonProgramW6432: C:\Program Files\Common Files
+ComSpec: C:\Windows\system32\cmd.exe
+ProgramData: C:\ProgramData
+ProgramW6432: C:\Program Files
+HOMEPATH: \Users\XXX
+SystemRoot: C:\Windows
+TEMP: C:\Users\XXX\AppData\Local\Temp
+HOMEDRIVE: C:
+PROCESSOR_IDENTIFIER: Intel64 Family 6 Model 69 Stepping 1, GenuineIntel
+USERPROFILE: C:\Users\XXX
+TMP: C:\Users\XXX\AppData\Local\Temp
+CommonProgramFiles(x86): C:\Program Files (x86)\Common Files
+ProgramFiles: C:\Program Files (x86)
+PUBLIC: C:\Users\Public
+NUMBER_OF_PROCESSORS: 4
+windir: C:\Windows
+=::: ::\
+
+Process finished with exit code 0
