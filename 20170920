@@ -1,0 +1,56 @@
+Java Serialization and deserialization
+
+Es.java
+
+import java.io.Serializable;
+
+public class Es implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String a;
+    public static String hi = "a";
+
+    Es(String s) {
+        this.a = s;
+    }
+
+    public String getA() {
+        return a;
+    }
+
+    public void setA(String a) {
+        this.a = a;
+    }
+}
+
+Test.java
+
+import java.io.*;
+
+public class Test {
+
+    public static void main(String[] args) throws ClassNotFoundException {
+        try {
+            ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("Es.object"));
+            outputStream.writeObject(new Es("my string here"));
+            outputStream.close();
+            Es.hi = "mmmmm";
+            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("Es.object"));
+            Es es = (Es) objectInputStream.readObject();
+            objectInputStream.close();
+            System.out.printf(es.getA());
+            System.out.printf(Es.hi);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+序列化之后的文件:
+Es.object
+
+ sr Es        L at Ljava/lang/String;xpt my string here
+
+变成这个样子了.
+
+从这个例子我可以知道的是,序列化可以用来持久化,然后是它不会作用于全局static变量.具体为什么我理解的是他只会去序列化heap的状态.
