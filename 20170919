@@ -1,0 +1,13 @@
+java stack heap and non-heap
+
+stack has basic variables， parameters， partical variable and return value.
+
+non-heap has static values and class process command info.
+
+heap has real objects.
+
+all threads share one heap.
+
+stack is owned by thread itself
+
+final has no matter with these
