@@ -54,3 +54,35 @@ Es.object
 变成这个样子了.
 
 从这个例子我可以知道的是,序列化可以用来持久化,然后是它不会作用于全局static变量.具体为什么我理解的是他只会去序列化heap的状态.
+
+HashMap speed test:
+
+public static void main(String[] args) {
+        Map<String, String> map = new HashMap<>();
+        for (int i = 0, j = 100000; i < j; i++)
+            map.put(Integer.toString(i), Integer.toString(i));
+        long start = System.nanoTime();
+        for (String key : map.keySet()) {
+            String valueval = map.get(key);
+        }
+        System.out.print("keyset takes" + (System.nanoTime() - start));
+        start = System.nanoTime();
+        for (String val : map.values()) {
+            String valueval = val;
+        }
+        System.out.print("values takes" + (System.nanoTime() - start));
+        start = System.nanoTime();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            String valueval = entry.getValue();
+        }
+        System.out.print("entry takes" + (System.nanoTime() - start));
+        /*
+        the time test result is like this:
+
+        keyset takes 10287785
+        values takes 7673443
+        entry takes  5893052
+
+        So, the test result my be, the entry is the fastest way to do a loop of map
+        */
+    }
