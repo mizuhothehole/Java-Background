@@ -61,3 +61,9 @@ public class Test1 {
 the result will be 1 1
 as the initialization will work in turn of the write way in
 java class！
+
+the use of classloader is free. we can define by ourselves.
+the class files can be from even the network.
+
+the application clsssloader defaultly load class files
+of classpath.
