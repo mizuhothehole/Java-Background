@@ -1,0 +1,63 @@
+java class field value set
+
+package wh;
+
+class Singleton{
+	
+	public static Singleton singleton = new Singleton();
+	public static int a;
+	public static int b = 0;
+	
+	private Singleton(){
+		a++;
+		b++;
+	}
+	
+	public static Singleton getInstance(){
+		return singleton;
+	}
+	
+}
+
+public class Test1 {
+	public static void main(String[] args) {
+		Singleton s = Singleton.getInstance();
+		System.out.println(s.a + " " + s.b);
+	}
+}
+
+in this case the result will be 1 0
+this is because the default values will be set
+when prepare（verify-prepare-analyse）.
+
+then in case below
+
+package wh;
+
+class Singleton{
+	
+	public static int a;
+	public static int b = 0;
+	public static Singleton singleton = new Singleton();
+	
+	private Singleton(){
+		a++;
+		b++;
+	}
+	
+	public static Singleton getInstance(){
+		return singleton;
+	}
+	
+}
+
+public class Test1 {
+	public static void main(String[] args) {
+		Singleton s = Singleton.getInstance();
+		System.out.println(s.a + " " + s.b);
+	}
+}
+
+the result will be 1 1
+as the initialization will work in turn of the write way in
+java class！
