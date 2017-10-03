@@ -1,0 +1,19 @@
+java garbage
+
+An object is considered garbage when there are no longer any references to it stored
+in any variables,
+the fields of any objects,
+or the elements of any arrays.
+
+1）no variables in methods
+2）no fields in objects
+3）no array elements
+
+1）method variable is in stack. no considering.
+
+2）so when object reference no existing，the
+field reference will also be collected.
+
+3）array is object in java. Think it as 1）and 2）.
+
+So we can judge them like above.
