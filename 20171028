@@ -1,0 +1,52 @@
+public class ThreadTest {
+
+    private static Runnable lock = new Runnable() {
+        @Override
+        public void run() {
+        }
+    };
+
+    private static Thread threadA = new Thread(new Runnable() {
+        @Override
+        public synchronized void run() {
+            System.out.print("A->");
+            System.out.print(this + "->");
+            lock = this;
+        }
+    });
+
+    private static Thread threadB = new Thread(new Runnable() {
+        @Override
+        public synchronized void run() {
+            System.out.print("B-->");
+            System.out.print(this + "-->");
+            System.out.print(lock + "-->");
+        }
+    });
+
+    public static void main(String[] args) throws InterruptedException {
+        threadA.setPriority(Thread.MIN_PRIORITY);
+        threadB.setPriority(Thread.MAX_PRIORITY);
+        threadA.start();
+        threadB.start();
+    }
+
+}
+
+// -------------------------Test Result------------------------------------------------------------
+
+// This code ends with like this+
+//A->B-->ThreadTest$2@26af6bb1->ThreadTest$3@40d974e1-->ThreadTest$2@26af6bb1-->
+//        Process finished with exit code 0
+
+// As a result of this, we have two ideas:
+// 1) the threads are running in different threads of CPU and they run in the same time
+// 2) the synchronized block is only determined by the object lock. And if we lock a method
+//    that is not static, we will get the lock of an object.
+// 3) However if we make a static method into synchronized, we will seems to see that
+//    the lock is the Class object lock, and is not the instance object lock. So the result
+//    is we could get different locks in different needs.
+// 4) In this code, the synchronized block is using the lock of new Runnable(){...};
+// 5) In this code, the "this" shows that when different threads started, they initialize different 
+//    ThreadTest instances. So we could see infact the GC works at the end of a thread and will 
+//    collect the objects that is no longer needed any more.
