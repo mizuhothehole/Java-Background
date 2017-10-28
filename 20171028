@@ -377,3 +377,5 @@ Process finished with exit code 0
 在第二种情况下也会出现类乱序的情况，然而会有这个ConcurrentModificationException的异常抛出。
 原因很简单，就是在数组遍历的时候，不可以多线程改变它（这里指的是普通数组，其实用Vector也是一样的）
 解决方法就是加lock。
+
+As we know, in fact the synchonized is just for sync methods.
