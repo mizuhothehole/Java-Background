@@ -1,3 +1,5 @@
+------Java.util.concurrents package------
+
 public class ThreadTest {
 
     private static Runnable lock = new Runnable() {
@@ -50,3 +52,328 @@ public class ThreadTest {
 // 5) In this code, the "this" shows that when different threads started, they initialize different 
 //    ThreadTest instances. So we could see infact the GC works at the end of a thread and will 
 //    collect the objects that is no longer needed any more.
+
+
+下面是另外一个例子
+
+public class Event {
+    public static void main(String[] strs) throws InterruptedException {
+        Girl girl = new Girl();
+        for (int i = 0; i < 100; i++) {
+            int finalI = i;
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Yixing yixing = Yixingzhimu.makeAChild(new Label("Child" + finalI, finalI));
+                    girl.papapasareta(yixing.getLabel().getName());
+//                    System.out.print("start recording");
+//                    for(Object str : girl.getNakadashisarerukaisuu()){
+//                        System.out.print((String) str);
+//                    }
+//                    System.out.print("stop recording");
+                }
+            });
+            thread.start();
+
+        }
+        Thread.sleep(10000);
+        System.out.print("start recording¥n");
+        for (Object str : girl.getNakadashisarerukaisuu()) {
+            System.out.print((String) str);
+        }
+        System.out.print("stop recording¥n");
+    }
+}
+
+结果是
+start recording¥nnullChild4Child2Child1Child0Child6Child5Child7Child9Child10Child11Child12Child13Child14
+Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29
+Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child43Child44
+Child45Child46Child47Child48Child49Child50Child51Child52Child53Child54Child55Child56Child57Child58Child59
+Child60Child61Child62Child63Child64Child65Child66Child67Child68Child69Child70Child71Child72Child73Child74
+Child75Child76Child77Child78Child79Child80Child81Child82Child83Child84Child85Child86Child87Child88Child89
+Child90Child91Child92Child93Child94Child95Child96Child97Child98Child99stop recording¥n
+
+public class Event {
+    public static void main(String[] strs) throws InterruptedException {
+        Girl girl = new Girl();
+        for (int i = 0; i < 100; i++) {
+            int finalI = i;
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Yixing yixing = Yixingzhimu.makeAChild(new Label("Child" + finalI, finalI));
+                    girl.papapasareta(yixing.getLabel().getName());
+                    System.out.print("start recording");
+                    for (Object str : girl.getNakadashisarerukaisuu()) {
+                        System.out.print((String) str);
+                    }
+                    System.out.print("stop recording");
+                }
+            });
+            thread.start();
+        }
+        Thread.sleep(10000);
+        System.out.print("start recording¥n");
+        for (Object str : girl.getNakadashisarerukaisuu()) {
+            System.out.print((String) str);
+        }
+        System.out.print("stop recording");
+
+    }
+}
+
+
+/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/bin/java "-javaagent:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar=52225:/Applications/IntelliJ IDEA CE.app/Contents/bin" -Dfile.encoding=UTF-8 -classpath /Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/deploy.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/ext/cldrdata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/ext/dnsns.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/ext/jaccess.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/ext/jfxrt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/ext/localedata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/ext/nashorn.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/ext/sunec.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/ext/sunjce_provider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/ext/sunpkcs11.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/ext/zipfs.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/javaws.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/jfxswt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/management-agent.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/plugin.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/lib/ant-javafx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/lib/dt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/lib/javafx-mx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/lib/jconsole.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/lib/packager.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/lib/sa-jdi.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/lib/tools.jar:/Users/ishiiaya/IdeaProjects/ThreadCity/out/production/ThreadCity Event
+objc[1471]: Class JavaLaunchHelper is implemented in both /Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/bin/java (0x1093164c0) and /Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/libinstrument.dylib (0x10abbc4e0). One of the two will be used. Which one is undefined.
+start recordingChild0stop recordingstart recordingChild0Child1stop recordingstart recordingChild0Child1Child2stop recordingstart recordingChild0Child1Child2Child3stop recordingstart recordingChild0Child1Child2Child3Child4stop recordingstart recordingChild0Child1Child2Child3Child4Child5stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22stop recordingException in thread "Thread-15" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-21" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23stop recordingException in thread "Thread-26" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27stop recordingException in thread "Thread-28" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Exception in thread "Thread-29" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-30" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-31" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Child17start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child28Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41stop recordingException in thread "Thread-42" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-99" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-97" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-98" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-93" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-96" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-95" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-90" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-89" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-86" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-84" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-83" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-82" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91stop recordingstart recordingChild0Child1Child2Child3Child4Child5start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Exception in thread "Thread-85" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-80" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-77" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-79" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-78" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-76" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Child86start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90start recordingChild0Child1Child89start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12start recordingChild0Child1start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78Child77Child76Child75stop recordingstart recordingChild0Child1Child13start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Exception in thread "Thread-73" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78Child77Child76Child75Child74Child73Child72Child71stop recordingException in thread "Thread-74" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-71" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-70" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-67" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-66" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-69" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-64" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78Child77Child76Child75Child74Child73start recordingChild0start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78Child77Child76Child75Child74Child73Child72Child71Child70Child69Child68stop recordingChild72start recordingChild0Child1Child2start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42start recordingChild0Child1Child2Child3Child4start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Exception in thread "Thread-63" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-62" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-65" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-58" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-57" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-56" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-61" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-53" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-52" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Child17Child18Child19start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78Child77Child76Child75Child74Child73Child72Child71Child70Child69Child68Child67Child66Child65Child64Child63Child62Child61Child60stop recordingstart recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78Child77Child76Child75Child74Child73Child72Child71Child70Child69Child68Child67Child66Child65Child64Child63Child62Child61Child60Child59stop recordingChild5start recordingChild0Child1Child2Child3Child4Child5start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38start recordingChild0Child1Child2start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78Child77Child76Child75Child74Child73Child72Child71Child70Exception in thread "Thread-51" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-55" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-49" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-47" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78Child77Child76Child75Child74Child73Child72Child71Child70Child69Child68Child67Child66Child65Child64Child63Child62Child61Child60Child59Child58Child57Child56Child55Child54Child53Child52Child51Child50Child49Child48stop recordingChild39start recordingChild0start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78Child77Child76Child75Child74Child73Child72Child71Child70Child69Child68Child67Child66Child65Child64Child63Child62Child61Child60Child59Child58Child57Child56Child55Child54Child53Child52Child51Child50Child49Child48Child47Child46stop recordingException in thread "Thread-50" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "Thread-44" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at Event$1.run(Event.java:12)
+	at java.lang.Thread.run(Thread.java:748)
+start recordingChild0start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91start recordingChild90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78Child77Child76Child75Child74start recordingChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child73Child72Child71Child70Child69Child68Child67Child66Child65Child64Child63Child0Child1Child2Child3Child62Child61Child60Child59Child58Child57Child56Child55Child54Child53Child52Child51Child50Child49Child48Child47Child46Child45Child44Child43stop recordingChild14Child15Child16Child17Child4Child5Child6Child18Child19Child7Child8Child20Child21Child9Child10Child11Child22Child23Child12Child13Child24Child25Child14Child15Child26Child27Child16Child17Child28Child29Child18Child19Child30Child31Child20Child21Child32Child33Child22Child23Child34Child35Child36Child37Child38Child24Child25Child39Child40Child41Child42Child26Child27Child99Child98Child28Child29Child97Child96Child30Child31Child95Child94Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78Child77Child76Child75Child74Child73Child72Child71Child70Child69Child68Child67Child66Child65Child64Child63Child62Child61Child60Child59Child58Child57Child56Child55Child54Child53Child52Child51Child50Child49Child48Child47Child46Child45Child44Child43stop recordingChild93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78Child77Child76Child75Child74Child73Child72Child71Child70Child69Child68Child67Child66Child65Child64Child63Child62Child61Child60Child59Child58Child57Child56Child55Child54Child53Child52Child51Child50Child49Child48Child47Child46Child45Child44Child43stop recordingstart recording¥nChild0Child1Child2Child3Child4Child5Child6Child7Child8Child9Child10Child11Child12Child13Child14Child15Child16Child17Child18Child19Child20Child21Child22Child23Child24Child25Child26Child27Child28Child29Child30Child31Child32Child33Child34Child35Child36Child37Child38Child39Child40Child41Child42Child99Child98Child97Child96Child95Child94Child93Child92Child91Child90Child89Child88Child87Child86Child85Child84Child83Child82Child81Child80Child79Child78Child77Child76Child75Child74Child73Child72Child71Child70Child69Child68Child67Child66Child65Child64Child63Child62Child61Child60Child59Child58Child57Child56Child55Child54Child53Child52Child51Child50Child49Child48Child47Child46Child45Child44Child43stop recording
+Process finished with exit code 0
+
+在第二种情况下也会出现类乱序的情况，然而会有这个ConcurrentModificationException的异常抛出。
+原因很简单，就是在数组遍历的时候，不可以多线程改变它（这里指的是普通数组，其实用Vector也是一样的）
+解决方法就是加lock。
