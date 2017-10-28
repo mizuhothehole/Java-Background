@@ -379,3 +379,61 @@ Process finished with exit code 0
 解决方法就是加lock。
 
 As we know, in fact the synchonized is just for sync methods.
+
+public class JavaMain {
+
+    private static class ThreadTest extends Thread {
+        final String object;
+
+        ThreadTest(String object, String str) {
+            this.object = object;
+            this.setName(str);
+        }
+
+        @Override
+        public void run() {
+            synchronized (object) {
+                super.run();
+                for (int i = 0; i < 5; i++) {
+                    System.out.print(Thread.currentThread().getName() + " hi-man: " + i + "\n");
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args){
+        String a = "";
+
+        new ThreadTest(a,"threadA").run();
+        new ThreadTest(a,"threadB").run();
+        new ThreadTest(a,"threadA").start();
+        new ThreadTest(a,"threadB").start();
+    }
+
+}
+
+main hi-man: 0
+main hi-man: 1
+main hi-man: 2
+main hi-man: 3
+main hi-man: 4
+main hi-man: 0
+main hi-man: 1
+main hi-man: 2
+main hi-man: 3
+main hi-man: 4
+threadA hi-man: 0
+threadA hi-man: 1
+threadA hi-man: 2
+threadA hi-man: 3
+threadA hi-man: 4
+threadB hi-man: 0
+threadB hi-man: 1
+threadB hi-man: 2
+threadB hi-man: 3
+threadB hi-man: 4
+
+Process finished with exit code 0
+
+this seems that using run() method is still calling methods in the current directly.
+We have to call start to let the lock really work well.
