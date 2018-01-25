@@ -1,0 +1,15 @@
+How to use linkedlist and arraylist
+
+When we just add or remove its elements，we use linked list
+however if we use lots of queries，we better use the array list。
+
+How to use aslist method。
+arrays.aslist is a kind that inner class of arrays. It is radically not a class
+Instance of java.lang.arraylist.
+Also it do not have the method of add or remove.
+We have to new the arraylist agsin and use the arrays.arraylist as its constrictor parameter.
+
+Now I am aiming at being the best engineer of Japan. Even though I am from China
+It is possible for me to achieve this because I can see lots of books in Japan which makes me
+Feel free.
+
