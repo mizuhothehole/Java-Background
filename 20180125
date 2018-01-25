@@ -13,3 +13,8 @@ Now I am aiming at being the best engineer of Japan. Even though I am from China
 It is possible for me to achieve this because I can see lots of books in Japan which makes me
 Feel free.
 
+The reason why linkedlist is good is that it is wildly used when insert and remove is
+wildly used.
+
+in memory it is not array in memor.
+However ArrayList is always array in memory.
