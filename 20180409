@@ -1,0 +1,6 @@
+https://bugs.java.com/view_bug.do?bug_id=4259569
+
+Oracle的人说，可以最好不用ToString，string buffer 的substring可以不去copy内存的。
+或者是直接最后把长度置为0。
+
+这样就会提高string buffer 的性能
