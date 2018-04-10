@@ -1,4 +1,4 @@
-System properties and env and System.lineSeparator() implementation tests
+System properties and env and System.lineSeparator() system.in implementation tests
 
 public class T {
     public static void main(String[] args) {
@@ -33,3 +33,27 @@ java.io.tmpdir : /var/folders/py/09hcv6sj7655vk765ws1y1
 The getEnv depends on the os. As supposed.
 
 System.lineSeparator() will return the seperator between lines.
+
+import java.io.IOException;
+import java.util.Map;
+import java.util.Scanner;
+
+public class T {
+    public static void main(String[] args) {
+        System.setProperty("runtime","code2>" + Runtime.getRuntime().hashCode() + "<code2");
+        System.out.print(System.getProperty("runtime"));
+        for(Map.Entry<String, String> s : System.getenv().entrySet()){
+            System.out.print(s.getKey() + " : "+s.getValue() + "n////" + System.lineSeparator());
+        }
+        try {
+            while (System.in.read() > 0){
+                System.out.print(new Scanner(System.in).next());
+            };
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+abcde
+abcde
