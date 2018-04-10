@@ -1,4 +1,4 @@
-System properties implementation
+System properties and env implementation tests
 
 public class T {
     public static void main(String[] args) {
@@ -66,4 +66,34 @@ sun.io.unicode.encoding : UnicodeBign////
 socksNonProxyHosts : local|*.local|169.254/16|*.169.254/16|127.0.0.1n////
 ftp.nonProxyHosts : local|*.local|169.254/16|*.169.254/16|127.0.0.1n////
 sun.cpu.isalist : n////
+Process finished with exit code 0
+
+
+import java.util.Map;
+
+public class T {
+    public static void main(String[] args) {
+        System.setProperty("runtime","code2>" + Runtime.getRuntime().hashCode() + "<code2");
+        System.out.print(System.getProperty("runtime"));
+        for(Map.Entry<String, String> s : System.getenv().entrySet()){
+            System.out.print(s.getKey() + " : "+s.getValue() + "n////");
+        }
+    }
+}
+
+code2>1950409828<code2PATH : /Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbinn////
+SHELL : /bin/bashn////
+USER : ishiiayan////
+VERSIONER_PYTHON_PREFER_32_BIT : non////
+TMPDIR : /var/folders/py/09hcv6sj7655vk765ws1y1hw0000gn/T/n////
+SSH_AUTH_SOCK : /private/tmp/com.apple.launchd.bdIB8tAi8H/Listenersn////
+JAVA_MAIN_CLASS_2706 : Tn////XPC_FLAGS : 0x0n////
+VERSIONER_PYTHON_VERSION : 2.7n////
+__CF_USER_TEXT_ENCODING : 0x1F5:0x1:0xEn////
+Apple_PubSub_Socket_Render : /private/tmp/com.apple.launchd.t0T3F6ZnvZ/Rendern////
+LOGNAME : ishiiayan////
+LC_CTYPE : ja_JP.UTF-8n////
+PWD : /Users/ishiiaya/IdeaProjects/untitled2n////
+XPC_SERVICE_NAME : com.jetbrains.intellij.ce.13140n////
+HOME : /Users/ishiiayan////
 Process finished with exit code 0
