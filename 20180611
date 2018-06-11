@@ -1,0 +1,18 @@
+Spring framework on bank system
+
+The structure about our system, key words:
+
+1. java spring > batch process spring batch / on line process spring struct
+2. java entity > the front html item entity
+3. java coverage plugin > the coverage plugin to run java test cases. And would create coverage window to show running results.
+4. java tomcat server context file > a file occured after you create a tomcat server, and you may add elements under the context tags.
+6. sts: spring tool suite > the tool suite that could let you create and manage spring projects more easily. It is based on eclipse.
+7. AP server: this means the application server
+
+https://spring.io/tools/sts
+
+This is the download address(2018/6/11).
+
+关于这个现场的工作,其中一个就是写UT的代码.另外一个是点画面上面的按钮进行后台的疏通.最后就是我们想看到的结果了.那就是进行各种各样的点击之后,我们可以
+看到我们的逻辑都是正确的,都是正常的.我认为这里面会有很多我们意料不到的exception以及各种各样的bug.
+
