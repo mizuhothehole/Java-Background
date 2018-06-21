@@ -1,5 +1,8 @@
 DozerMapper, drug down box, and formList
 
+DozerMapper 也是spring框架下面的一个东西。专门用来做bean的数值copy。XXXXmapper.xml可以用来定义一些自定义的数值类型的converter，
+以及字段名不一致的时候的mapping。
+
 form:selectタグ
 form:selectタグの属性はcheckboxesの属性に追加して以下のものがあります。
 
