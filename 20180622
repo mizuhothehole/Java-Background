@@ -1,0 +1,49 @@
+DozerMapper, drug down box, and formList
+
+form:selectタグ
+form:selectタグの属性はcheckboxesの属性に追加して以下のものがあります。
+
+属性	説明
+multiple	HTML標準のmultiple属性
+size	HTML標準のsize属性
+例は今までと同様です。JSPのみmultipleやsizeを使ったものにしています。
+
+@Controller
+public class FormController {
+    @RequestMapping(value = "/select", method = RequestMethod.GET)
+    public String select(Model model) {
+        List<Book> books = new ArrayList<>();
+
+        books.add(new Book("1234567890", "Spring入門"));
+        books.add(new Book("1111111111", "Java入門"));
+        books.add(new Book("9999999999", "Servlet/JSP入門"));
+
+        SelectModel sm = new SelectModel();
+        sm.setSelectedIsbn("1111111111");
+        List<String> selectedIsbns = new ArrayList<String>();
+        selectedIsbns.add("1234567890");
+        selectedIsbns.add("9999999999");
+        sm.setSelectedIsbns(selectedIsbns);
+        model.addAttribute("selectModel", sm);
+        model.addAttribute("books", books);
+
+        return "select";
+    }
+}
+public class SelectModel {
+    private String selectedIsbn;
+
+    private List<String> selectedIsbns;
+}
+<form:form modelAttribute="selectModel">
+ <form:select path="selectedIsbn" items="${books}" itemLabel="title" itemValue="isbn" /><br>
+ <form:select path="selectedIsbns" items="${books}" itemLabel="title" itemValue="isbn" size="3" multiple="true" />
+</form:form>
+
+我的项目里面，看起来只能这么用了。
+明天的业务逻辑是这样的，DB里面两张表，
+  yushisakiidoujyohou
+      shusaimusha
+      rendaisaimusha <shime, kubn 0, then is new>
+      risuto <0,1,2,3 or 1,2,3>
+  
