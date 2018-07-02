@@ -1,0 +1,17 @@
+关于一个典型的java框架的实践
+
+前台是一个jsp(view),然后是spring,主要包括注解还有form,以及controller,然后再后面是一个service,service是包含在controller里面的.
+service主要有三个处理，前处理，主处理和后处理。前处理是用来创造entity的，主处理是拿entity作check，以及存往db业务数据的，后处理是用来得到一个outputVO，
+然后去更新页面的。
+service的里面是所谓的entity和entity manager。entity manager 有两个主要的方法，store以及create。create主要是从数据库读数据，然而
+store则是从往数据库里存数据的。
+
+然后是里面dao，这个东西是用来和数据库交互的，应该是用所谓的mybatis数据库框架。
+
+jsp > get > (validation) > form > controller > all buttons on form > 
+                                                           confirm > service.excute > doPrepare                   > doExecute                           > doPost
+                                                                                   VO > entityManager.create  entityManager.save/related check      entity.getVO  
+                                                           save    > .......
+                                                           delete  > .......
+                                                           
+                                                           
