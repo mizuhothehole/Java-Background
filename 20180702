@@ -13,5 +13,7 @@ jsp > get > (validation) > form > controller > all buttons on form >
                                                                                    VO > entityManager.create  entityManager.save/related check      entity.getVO  
                                                            save    > .......
                                                            delete  > .......
-                                                           
-                                                           
+                                                          
+另外，我想吐槽下，为什么这个框架设计的这么好，结果没什么人会用，或者说是把它用的很差呢？
+有的时候，在点一个按钮的时候，会先出来个js的框，再出来个java的框。java的框会比js的框宽一些。这个时候，就需要去想一下了，实际上js出来之后，java的
+才会出来，因为在传到后台之前，java的处理并没有结束的。
