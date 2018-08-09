@@ -1,0 +1,7 @@
+play framework
+
+This is a JVM base web application fw.
+It is based on scala and java. We can develop web projects on play-framework.
+It is now also in the idea-intellij ide and we can create a scala project just using this.
+Scala can be compiled into java, so we could be able to use JVM to do our works.
+Also we could see the scala framework has the possibility to develop faster, it is also based on the MVC.
