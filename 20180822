@@ -1,0 +1,50 @@
+Lamda expression in JAVA 8
+
+What is Lamda?
+
+The syntax of Lamda is like this:
+
+(parameter) -> {method expressions}
+
+The definiation of Lamda is to use @FunctionalInterface
+
+Sample:
+
+aaa.java
+
+---------------------------------------------------------------
+
+package com.example.aaa;
+
+@FunctionalInterface
+interface aaa {
+    int aaa();
+}
+
+package com.example.b0558.myapplication;
+---------------------------------------------------------------
+
+Main.java
+---------------------------------------------------------------
+
+import com.example.aaa;
+
+public class Main {
+
+    public static void main(String[] args) {
+        DoubleSupplier doubleSupplier = () -> 2.2;
+        System.out.print(doubleSupplier.getAsDouble());
+        Test test = String::valueOf;
+        aaa abc = () -> 1;
+        System.out.print(test.getStr(2));
+        System.out.print(abc.aaa());
+    }
+
+    @FunctionalInterface
+    private interface Test {
+        String getStr(int str);
+    }
+}
+---------------------------------------------------------------
+
+The output is: 2.221
