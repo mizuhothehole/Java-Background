@@ -1,0 +1,22 @@
+java的类型解释
+
+java.lang.reflect.Type
+Java.lang.reflect.ParameterizedType
+
+前面这个类型是java里面的类的类型接口。
+下面这个是类型的一个子接口，特别代指那种带参数的类型。也就是中文翻译过来的泛型。
+
+从Class<T>中我们可以知道很多关于某种类型的信息。
+
+它实现的接口：Class.getGenericInterfaces() -> 返回一个Type类型实例的列表
+比如说它的父类：Class.getGenericSuperclass() -> 返回一个Type类型实例
+比如方法返回参数类型列表：Method.getGenericParameterTypes() -> 返回一个Type类型实例的列表
+比如方法返回返回值类型：Method.getGenericReturnType() -> 返回一个Type类型实例
+
+而ParameterizedType则可以让我们在运行期间得到泛型的参数类型以及泛型的主类的类型。
+
+getActualTypeArguments() Collection<String> -> 返回[String(全局限定名)]
+getOwnerType() Collection<String> -> 返回Collection的全局限定名
+getRawType() Map.Entry<String, String> -> 返回Map的全局限定名
+
+代码的话很好写，就不列举了
