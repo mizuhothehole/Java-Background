@@ -86,3 +86,45 @@ xml file
 </web-app>
 
 the result shows correctly
+
+JSP
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page import="java.io.*"%>
+<%!
+int counter;
+private File file;
+public void jspInit(){
+    file=new File(getServletContext().getRealPath("/WEB-INF/counter.dat"));
+    if(file.exists()) {
+        try {
+            DataInputStream dis = new DataInputStream(new FileInputStream(file));
+            counter=dis.readInt();
+            dis.close();
+        } catch(IOException e){}
+    }
+}
+
+public void jspDestroy() {
+    try {
+        file.getParentFile().mkdirs();
+        DataOutputStream dos = new DataOutputStream(new FileOutputStream(file));
+        dos.writeInt(counter);
+        dos.flush();
+        dos.close();
+    } catch(IOException e){}
+}
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<p>some HTML contents<p>
+<% out.print("string from setvlet");%>
+this page is: <%=(++counter)%> times read.
+</body>
+</html>
