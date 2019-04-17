@@ -4,3 +4,59 @@ directive
 
 prototype:
 <%@ [directive name] [attribute name 1] = [attribute value 1] [attribute name 2] = [attribute value 2] %>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page import="java.io.*"%>
+<%@ include file="header.html" %>
+<%@ page isErrorPage="false" %>
+<jsp:directive.page isErrorPage="false" />
+<%@ page isThreadSafe="true" session="true"%>
+<jsp:declaration>
+  Integer my = new Integer(2);
+</jsp:declaration>
+
+<%!
+int counter;
+private File file;
+public void jspInit(){
+    file=new File(getServletContext().getRealPath("/WEB-INF/counter.dat"));
+    if(file.exists()) {
+        try {
+            DataInputStream dis = new DataInputStream(new FileInputStream(file));
+            counter=dis.readInt();
+            dis.close();
+        } catch(IOException e){}
+    }
+}
+
+public void jspDestroy() {
+    try {
+        file.getParentFile().mkdirs();
+        DataOutputStream dos = new DataOutputStream(new FileOutputStream(file));
+        dos.writeInt(counter);
+        dos.flush();
+        dos.close();
+    } catch(IOException e){}
+}
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<p>some HTML contents<p>
+<%= new java.util.Date().toString() + System.lineSeparator() %>
+<br/>
+<% out.print("\n");%>
+<jsp:expression>
+my.toString()
+</jsp:expression> 
+<% out.print("string from setvlet");%>
+<% /*comment here */ %>
+<br/>
+this page is: <%=(++counter)%> times read.
+</body>
+</html>
