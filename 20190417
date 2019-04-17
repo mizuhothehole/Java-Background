@@ -1,0 +1,6 @@
+JSP
+
+directive
+
+prototype:
+<%@ [directive name] [attribute name 1] = [attribute value 1] [attribute name 2] = [attribute value 2] %>
