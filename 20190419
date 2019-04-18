@@ -202,3 +202,25 @@ public class CustomServletQ extends HttpServlet {
 
 	}
 }
+
+所以这样也是ok的：
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// request.getRequestDispatcher("/WebContent/WEB-INF/dir.jsp").forward(request, response);
+		doGet(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().write("hi");
+		request.getRequestDispatcher("/WEB-INF/jsp/dir.jsp").forward(request, response);
+		}
+		
