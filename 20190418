@@ -1,0 +1,7 @@
+JSP buffer
+
+这个是JSPWriter类的一个属性而已。
+其中有一个就是size最大值，还有是不是自动。据说要设置成为和socket一样的大小或者稍微大一点。
+useBean属性：这个属性是用来mapping一个bean实例的。
+setAttribute可以设置它的初始化。
+然后再jsp文件里面，设置setProperty也可以设置其大小。
