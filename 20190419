@@ -289,3 +289,6 @@ public class TestFilter implements Filter {
 	}
 这个样子就可以设定cookie了。
 我可以清楚看到在chrome的DevTool里面的Application里有cookie这一项。而且里面的name和value都看的清楚。
+
+response.addCookie(new Cookie("test", request.getSession().getId()));
+这里面的getId原来就是传说中的sessionID啊。
