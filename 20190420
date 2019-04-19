@@ -1,0 +1,22 @@
+JSP的动作元素
+
+通用的属性
+
+id 唯一标识当前动作元素的id
+scope 定义相关联对象id的寿命
+
+<jsp:include>元素
+
+page jsp文件的相对地址
+flush 布尔属性，定义在包含资源前是否刷新缓存区
+
+<jsp:useBean>
+
+class 指定Bean的完整的包名
+type 指定该对象变量的类型
+beanName 通过java.beans.Beans 的 instantiate() 方法指定Bean的名字
+
+<jsp:setProperty>
+
+name 它表示要设定是哪个Bean
+property 
