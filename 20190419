@@ -503,3 +503,19 @@ public class TtestListener implements ServletContextListener, ServletContextAttr
 
 上面是我写的第一个listener。
 然后就可以简单的得到具体的属性值了。
+
+JSP的page指令
+
+buffer 指定out对象使用缓冲区的大小
+autoFlush 指定out对象的缓冲区
+contentType 指定当前页面的MINE类型以及字符编码
+errorPage 指定当jsp异常的话的跳转页面
+isErrorPage 当前页面是不是错误页面
+extends 指定servlet从哪一个类继承
+import 指定导入哪个java类
+info 指定页面的描述信息
+isThreadSafe 指定是不是线程安全
+language 定义JSP使用语言，默认是java
+session 指定页面是不是用session
+isELIgnored 指定是否执行EL表达式
+isScriptingEnabled 确定脚本元素是否被使用
