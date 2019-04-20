@@ -20,3 +20,15 @@ beanName 通过java.beans.Beans 的 instantiate() 方法指定Bean的名字
 
 name 它表示要设定是哪个Bean
 property 
+
+<jsp:getProperty>
+name 要检索的Bean的属性名称。Bean必须以及定义
+property 表示要提取Bean属性值
+
+<jsp:forward>
+把请求转移到其它的页面
+
+<jsp:element>
+<jsp:attribute>
+<jsp:body>
+这几个元素是用来动态生成xml元素的
