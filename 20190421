@@ -9,7 +9,7 @@ ${sample}
 pageScope	pageスコープの値が取得できる
 requestScope	requestスコープの値が取得できる
 sessionScope	sessionスコープの値が取得できる
-applicationScope	aplicationスコープの値が取得できる
+applicationScope	applicationスコープの値が取得できる
 pageContext	pageContextオブジェクト
 param	リクエストパラメータの値が取得できる
 paramValues	リクエストパラメータの値が取得できる（配列で取得）
