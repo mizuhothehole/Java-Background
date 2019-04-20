@@ -35,3 +35,13 @@ property 表示要提取Bean属性值
 
 session的getAttribute和getAttribute
 得到session里某个属性值或者设定某一个属性值
+
+session，cookie都是server发行的
+Jsession，这个是server发行的cookie的key
+值是一个乱数。session的发行不需要setcookie。
+只不过最后存放在cookie里面而已。
+
+然后是cookie这个东西不可以用来存放敏感的信息
+因为有安全的危险
+
+如果用了setcookies那么也会自动的发行一个cookie
