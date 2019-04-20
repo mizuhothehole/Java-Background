@@ -45,3 +45,7 @@ Jsession，这个是server发行的cookie的key
 因为有安全的危险
 
 如果用了setcookies那么也会自动的发行一个cookie
+
+session这个东西，默认就是被生成的。
+如果想让它失去效果，可以用session=false的jsp指令把它干掉。
+特别是大规模访问的时候，可以很大的提高效率。
