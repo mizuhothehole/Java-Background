@@ -32,3 +32,6 @@ property 表示要提取Bean属性值
 <jsp:attribute>
 <jsp:body>
 这几个元素是用来动态生成xml元素的
+
+session的getAttribute和getAttribute
+得到session里某个属性值或者设定某一个属性值
