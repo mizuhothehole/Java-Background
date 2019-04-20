@@ -4,3 +4,16 @@ EL式
 ${sample}
 
 这样子可以表示出来sample的具体的值。
+
+オブジェクト	意味
+pageScope	pageスコープの値が取得できる
+requestScope	requestスコープの値が取得できる
+sessionScope	sessionスコープの値が取得できる
+applicationScope	aplicationスコープの値が取得できる
+pageContext	pageContextオブジェクト
+param	リクエストパラメータの値が取得できる
+paramValues	リクエストパラメータの値が取得できる（配列で取得）
+header	リクエストヘッダの値が取得できる
+headerValues	リクエストヘッダの値が取得できる（配列で取得）
+initParam	初期パラメータの値が取得できる
+cookie	クッキーの値が取得できる
