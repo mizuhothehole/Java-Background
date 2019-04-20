@@ -1,0 +1,6 @@
+EL式
+
+<% request.setAttribute("sample","hello"); %>
+${sample}
+
+这样子可以表示出来sample的具体的值。
