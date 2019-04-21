@@ -42,3 +42,6 @@ The default scope is pageScope, which is used when the variable declaration omit
 		chain.doFilter(request, response); // 这里面往下调用的话会进去servlet的逻辑
     
 断点2：response.getWriter().write(request.getLocalAddr());// 这个是filter从servlet到jsp的response的时候的逻辑
+
+一个JSP可以有多个filter。
+执行顺序是web.xml里面的配置顺序。
