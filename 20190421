@@ -30,3 +30,15 @@ sessionScope enables access to the user session. The variable persists for the d
 applicationScope enables access to all application resources and users. The state of the variable is the same for all users of the application.
 
 The default scope is pageScope, which is used when the variable declaration omits scope specification. You should specify the narrowest scope possible, in order to minimize the chance that two variables with the same name have overlapping scopes.
+
+// 关于filter里面的doFilter
+// 这个东西是专门用来做request和response的filter的。
+
+
+断点1：response.getWriter().write(request.getServerName()); // 这个是filter从jsp到servlet的request的时候的逻辑
+
+
+		// pass the request along the filter chain
+		chain.doFilter(request, response); // 这里面往下调用的话会进去servlet的逻辑
+    
+断点2：response.getWriter().write(request.getLocalAddr());// 这个是filter从servlet到jsp的response的时候的逻辑
