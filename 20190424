@@ -1,0 +1,9 @@
+iBATIS
+
+isNull判断property字段是否是null 
+isEmpty判断property字段 是否是null 和 空字符串 
+isEqual相当于equals，数字用得多些，一般都是判断状态值
+
+property：相当于参数里面map的一个key property
+prepareValue：和什么值比较
+prepent：条件成立的话，就拼接这个串
