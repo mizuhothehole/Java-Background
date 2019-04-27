@@ -1,0 +1,19 @@
+关于spring的interceptor
+
+一个是普通的interceptor。这个是用来截取MVC里面的
+method的方法执行前，方法执行后，以及最后的Servlet
+执行后。
+
+doprehandler
+doafterhandler
+docompletation
+
+也就是上面的这三个方法。
+
+还有一种是method interceptor
+这个是用来截获方法的
+需要自己去定义注解
+
+interceptor和Servlet的filter不同的是，一个是针对
+的request和response
+另一个是针对到具体的方法
