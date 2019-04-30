@@ -1,0 +1,44 @@
+部署jsp网站相关技术
+
+我用eclipse开发了一个简易网站。然后把它部署（deploy）在tomcat上面。
+开始的时候war文件没有被解压，可是网页依然可以访问。只不过访问jsp的时候有点奇怪。
+后面我发现是因为我没有用管理员权限去执行startup.bat导致了这个错误。
+
+30-Apr-2019 15:31:11.462 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log Server縺ｮ繝舌・繧ｸ繝ｧ繝ｳ蜷搾ｼ哂pache Tomcat/9.0.19
+30-Apr-2019 15:31:11.478 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log Server 繝薙Ν繝・          Apr 12 2019 14:22:48 UTC
+30-Apr-2019 15:31:11.494 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log 繧ｵ繝ｼ繝舌・縺ｮ繝舌・繧ｸ繝ｧ繝ｳ逡ｪ蜿ｷ・・.0.19.0
+30-Apr-2019 15:31:11.494 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log OS 蜷・               Windows 10
+30-Apr-2019 15:31:11.494 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log OS 繝舌・繧ｸ繝ｧ繝ｳ:            10.0
+30-Apr-2019 15:31:11.494 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log 繧｢繝ｼ繧ｭ繝・け繝√Ε:          amd64
+30-Apr-2019 15:31:11.494 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jre1.8.0_201
+30-Apr-2019 15:31:11.494 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 繝舌・繧ｸ繝ｧ繝ｳ:           1.8.0_201-b09
+30-Apr-2019 15:31:11.494 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 繝吶Φ繝・・           Oracle Corporation
+30-Apr-2019 15:31:11.494 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Program Files\Apache Software Foundation\Tomcat 9.0
+30-Apr-2019 15:31:11.500 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Program Files\Apache Software Foundation\Tomcat 9.0
+30-Apr-2019 15:31:11.500 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log 繧ｳ繝槭Φ繝峨Λ繧､繝ｳ蠑墓 焚・・Djava.util.logging.config.file=C:\Program Files\Apache Software Foundation\Tomcat 9.0\conf\logging.properties
+30-Apr-2019 15:31:11.500 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log 繧ｳ繝槭Φ繝峨Λ繧､繝ｳ蠑墓 焚・・Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Apr-2019 15:31:11.500 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log 繧ｳ繝槭Φ繝峨Λ繧､繝ｳ蠑墓 焚・・Djdk.tls.ephemeralDHKeySize=2048
+30-Apr-2019 15:31:11.500 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log 繧ｳ繝槭Φ繝峨Λ繧､繝ｳ蠑墓 焚・・Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+30-Apr-2019 15:31:11.500 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log 繧ｳ繝槭Φ繝峨Λ繧､繝ｳ蠑墓 焚・・Dignore.endorsed.dirs=
+30-Apr-2019 15:31:11.500 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log 繧ｳ繝槭Φ繝峨Λ繧､繝ｳ蠑墓 焚・・Dcatalina.base=C:\Program Files\Apache Software Foundation\Tomcat 9.0
+30-Apr-2019 15:31:11.500 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log 繧ｳ繝槭Φ繝峨Λ繧､繝ｳ蠑墓 焚・・Dcatalina.home=C:\Program Files\Apache Software Foundation\Tomcat 9.0
+30-Apr-2019 15:31:11.500 諠・ｱ [main] org.apache.catalina.startup.VersionLoggerListener.log 繧ｳ繝槭Φ繝峨Λ繧､繝ｳ蠑墓 焚・・Djava.io.tmpdir=C:\Program Files\Apache Software Foundation\Tomcat 9.0\temp
+30-Apr-2019 15:31:11.500 諠・ｱ [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 蝠・畑迺ｰ蠅・↓譛 驕ｩ縺ｪ諤ｧ閭ｽ繧堤匱謠ｮ縺吶ｋ APR 繝吶・繧ｹ縺ｮ Tomcat 繝阪う繝・ぅ繝悶Λ繧､繝悶Λ繝ｪ縺・java.library.path [C:\Program Files\Java\jre1.8.0_201\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\81809\Downloads\cocos2d-x-3.17.1\cocos2d-x-3.17.1\templates;C:\Users\81809\Downloads\cocos2d-x-3.17.1\cocos2d-x-3.17.1\tools\cocos2d-console\bin;C:\Users\81809\AppData\Local\Microsoft\WindowsApps;.] 縺ｫ蟄伜惠縺励∪縺帙ｓ縲・
+30-Apr-2019 15:31:11.879 諠・ｱ [main] org.apache.coyote.AbstractProtocol.init 繝励Ο繝医さ繝ｫ繝上Φ繝峨Λ ["http-nio-8080"] 繧貞・譛溷喧縺励∪縺吶・
+30-Apr-2019 15:31:12.117 諠・ｱ [main] org.apache.coyote.AbstractProtocol.init 繝励Ο繝医さ繝ｫ繝上Φ繝峨Λ ["ajp-nio-8009"] 繧貞・譛溷喧縺励∪縺吶・
+30-Apr-2019 15:31:12.133 諠・ｱ [main] org.apache.catalina.startup.Catalina.load 繧ｵ繝ｼ繝舌・縺ｮ蛻晄悄蛹・[1,502]ms
+30-Apr-2019 15:31:12.233 諠・ｱ [main] org.apache.catalina.core.StandardService.startInternal 繧ｵ繝ｼ繝薙せ [Catalina]  繧定ｵｷ蜍輔＠縺ｾ縺・
+30-Apr-2019 15:31:12.233 諠・ｱ [main] org.apache.catalina.core.StandardEngine.startInternal 繧ｵ繝ｼ繝悶Ξ繝・ヨ繧ｨ繝ｳ繧ｸ繝ｳ縺ｮ襍ｷ蜍包ｼ喙Apache Tomcat/9.0.19]
+30-Apr-2019 15:31:12.302 諠・ｱ [main] org.apache.catalina.startup.HostConfig.deployWAR Web繧｢繝励Μ繧ｱ繝ｼ繧ｷ繝ｧ繝ｳ繧｢ 繝ｼ繧ｫ繧､繝・[C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\jspProj.war] 繧帝・蛯吶＠縺ｾ縺・
+30-Apr-2019 15:31:12.926 諠・ｱ [main] org.apache.catalina.startup.HostConfig.deployWAR Web 繧｢繝励Μ繧ｱ繝ｼ繧ｷ繝ｧ繝ｳ繧｢繝ｼ繧ｫ繧､繝・[C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\jspProj.war] 縺ｮ驟咲ｽｮ縺ｯ [624] ms 縺ｧ螳御ｺ・＠縺ｾ縺励◆縲・
+30-Apr-2019 15:31:12.934 諠・ｱ [main] org.apache.catalina.startup.HostConfig.deployDirectory Web繧｢繝励Μ繧ｱ繝ｼ繧ｷ繝ｧ 繝ｳ繝・ぅ繝ｬ繧ｯ繝医Μ [C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\docs] 繧帝・蛯吶＠縺ｾ縺・
+30-Apr-2019 15:31:13.015 諠・ｱ [main] org.apache.catalina.startup.HostConfig.deployDirectory 繝・ぅ繝ｬ繧ｯ繝医Μ [C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\docs] 縺ｮ Web 繧｢繝励Μ繧ｱ繝ｼ繧ｷ繝ｧ繝ｳ縺ｮ驟咲ｽｮ縺ｯ [73] ms 縺ｧ螳御ｺ・＠縺ｾ縺励◆縲・
+30-Apr-2019 15:31:13.015 諠・ｱ [main] org.apache.catalina.startup.HostConfig.deployDirectory Web繧｢繝励Μ繧ｱ繝ｼ繧ｷ繝ｧ 繝ｳ繝・ぅ繝ｬ繧ｯ繝医Μ [C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\examples] 繧帝・蛯吶＠縺ｾ縺・
+30-Apr-2019 15:31:13.784 諠・ｱ [main] org.apache.catalina.startup.HostConfig.deployDirectory 繝・ぅ繝ｬ繧ｯ繝医Μ [C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\examples] 縺ｮ Web 繧｢繝励Μ繧ｱ繝ｼ繧ｷ繝ｧ繝ｳ縺ｮ驟咲ｽｮ縺ｯ [769] ms 縺ｧ螳御ｺ・＠縺ｾ縺励◆縲・
+30-Apr-2019 15:31:13.784 諠・ｱ [main] org.apache.catalina.startup.HostConfig.deployDirectory Web繧｢繝励Μ繧ｱ繝ｼ繧ｷ繝ｧ 繝ｳ繝・ぅ繝ｬ繧ｯ繝医Μ [C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\manager] 繧帝・蛯吶＠縺ｾ縺・
+30-Apr-2019 15:31:13.885 諠・ｱ [main] org.apache.catalina.startup.HostConfig.deployDirectory 繝・ぅ繝ｬ繧ｯ繝医Μ [C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\manager] 縺ｮ Web 繧｢繝励Μ繧ｱ繝ｼ繧ｷ繝ｧ繝ｳ縺ｮ驟咲ｽｮ縺ｯ [99] ms 縺ｧ螳御ｺ・＠縺ｾ縺励◆縲・
+30-Apr-2019 15:31:13.885 諠・ｱ [main] org.apache.catalina.startup.HostConfig.deployDirectory Web繧｢繝励Μ繧ｱ繝ｼ繧ｷ繝ｧ 繝ｳ繝・ぅ繝ｬ繧ｯ繝医Μ [C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\ROOT] 繧帝・蛯吶＠縺ｾ縺・
+30-Apr-2019 15:31:13.969 諠・ｱ [main] org.apache.catalina.startup.HostConfig.deployDirectory 繝・ぅ繝ｬ繧ｯ繝医Μ [C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\ROOT] 縺ｮ Web 繧｢繝励Μ繧ｱ繝ｼ繧ｷ繝ｧ繝ｳ縺ｮ驟咲ｽｮ縺ｯ [84] ms 縺ｧ螳御ｺ・＠縺ｾ縺励◆縲・
+30-Apr-2019 15:31:13.969 諠・ｱ [main] org.apache.coyote.AbstractProtocol.start 繝励Ο繝医さ繝ｫ繝上Φ繝峨Λ繝ｼ ["http-nio-8080"] 繧帝幕蟋九＠縺ｾ縺励◆縲・
+30-Apr-2019 15:31:14.000 諠・ｱ [main] org.apache.coyote.AbstractProtocol.start 繝励Ο繝医さ繝ｫ繝上Φ繝峨Λ繝ｼ ["ajp-nio-8009"] 繧帝幕蟋九＠縺ｾ縺励◆縲・
+30-Apr-2019 15:31:14.016 諠・ｱ [main] org.apache.catalina.startup.Catalina.start 繧ｵ繝ｼ繝舌・縺ｮ襍ｷ蜍・[1,878]ms
