@@ -1,0 +1,61 @@
+今日、ＳＶＮ経由でユーザの最後コミットしたタイミングをとろうとしました。
+下記のソースコードで問題なくＳＮＶの情報を取れました。
+package svnExecutor;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Executor {
+
+	public static void main(String[] args) {
+		try {
+			Process process = new ProcessBuilder("C:\\\\Program Files\\\\TortoiseSVN\\\\bin\\\\svn.exe","info","C:\\Users\\石井绫\\Desktop\\svn\\folder1\\test.txt").start();
+			BufferedReader stdInput = new BufferedReader(new 
+				     InputStreamReader(process.getInputStream()));
+
+				BufferedReader stdError = new BufferedReader(new 
+				     InputStreamReader(process.getErrorStream()));
+
+				// Read the output from the command
+				System.out.println("Here is the standard output of the command:\n");
+				String s = null;
+				while ((s = stdInput.readLine()) != null) {
+				    System.out.println(s);
+				}
+
+				// Read any errors from the attempted command
+				System.out.println("Here is the standard error of the command (if any):\n");
+				while ((s = stdError.readLine()) != null) {
+				    System.out.println(s);
+				}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
+
+そして取れたのは下記になります。
+
+Here is the standard output of the command:
+
+Path: C:\Users\石井绫\Desktop\svn\folder1\test.txt
+Name: test.txt
+Working Copy Root Path: C:\Users\石井绫\Desktop\svn
+URL: file:///C:/Users/%E7%9F%B3%E4%BA%95%E7%BB%AB/Desktop/remote/folder1/test.txt
+Relative URL: ^/folder1/test.txt
+Repository Root: file:///C:/Users/%E7%9F%B3%E4%BA%95%E7%BB%AB/Desktop/remote
+Repository UUID: 109065a3-db30-b045-a10b-b551543f242e
+Revision: 4
+Node Kind: file
+Schedule: normal
+Last Changed Author: 石井绫
+Last Changed Rev: 4
+Last Changed Date: 2019-10-31 23:47:16 +0900 (周四, 31 十月 2019)
+Text Last Updated: 2019-10-31 23:47:00 +0900 (周四, 31 十月 2019)
+Checksum: cfdcc52570a4d3292f4f2eac9428b5be24135547
+
+Here is the standard error of the command (if any):
