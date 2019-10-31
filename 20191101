@@ -59,3 +59,57 @@ Text Last Updated: 2019-10-31 23:47:00 +0900 (周四, 31 十月 2019)
 Checksum: cfdcc52570a4d3292f4f2eac9428b5be24135547
 
 Here is the standard error of the command (if any):
+
+package svnExecutor;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+さらに進化したバージョンにすると：
+
+public class Executor {
+
+	public static void main(String[] args) {
+		for (int i = 0; i < 1000000 ; i ++) {
+			Process process = null;
+			try {
+				process = new ProcessBuilder("C:\\\\Program Files\\\\TortoiseSVN\\\\bin\\\\svn.exe","info","C:\\Users\\石井绫\\Desktop\\svn\\folder1\\test.txt").start();
+				System.out.println(process.isAlive());
+				BufferedReader stdInput = new BufferedReader(new 
+					     InputStreamReader(process.getInputStream()));
+
+					BufferedReader stdError = new BufferedReader(new 
+					     InputStreamReader(process.getErrorStream()));
+					System.out.println(process.isAlive());
+
+					// Read the output from the command
+					System.out.println("Here is the standard output of the command:\n");
+					String s = null;
+					while ((s = stdInput.readLine()) != null) {
+					    System.out.println(s);
+					}
+					System.out.println(process.isAlive());
+
+					// Read any errors from the attempted command
+					System.out.println("Here is the standard error of the command (if any):\n");
+					while ((s = stdError.readLine()) != null) {
+					    System.out.println(s);
+					}
+					process.waitFor();
+			} catch (IOException | InterruptedException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					process.getInputStream().close();
+					process.getOutputStream().close();
+					process.getErrorStream().close();
+					process.destroy();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		System.out.println("RUNNING OVER!!");
+	}
+}
