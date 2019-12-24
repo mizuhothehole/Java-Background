@@ -1,0 +1,23 @@
+I am in trouble because of the project would not be passed by any.
+So I got the hole workplace from other people and just deploy the au app parts.
+oh, I forgot I worked fot softbank about half a year and now work for AU, which is under the KDDI in japan.
+
+Our team is in some trouble and I am trying to get the env fine by doing these efforts.
+
+1.delete meta with bk
+2.impt the auApp
+3.build by eclipse
+4.fix err
+5.fix build.xml and run ant
+6.deply if eclipse and ant fine
+
+I think 3,4 would be hard working. However if I can think of that the au app can run just by itself, this would be a local test env.
+But the env for reviewing would be another, as I thinked。
+So what is the best solution here we have?
+What is cvs? I have no any idea. But in this moment as I think about, is to work like unit test in local test env and do the commit by
+cvs env. However if I could not finishi that, I would in some big trouble.
+
+Well, I decide to give up the env and just do the usual works assigned to me from tomorrow.
+So maybe I would not rest in the 12:00-13:00, and this is bad news.
+
+Japanese IT, that is very hard. I think it is with the least attraction to young people.
