@@ -21,3 +21,5 @@ Well, I decide to give up the env and just do the usual works assigned to me fro
 So maybe I would not rest in the 12:00-13:00, and this is bad news.
 
 Japanese IT, that is very hard. I think it is with the least attraction to young people.
+
+使用するActionクラス内のmapping.findForward(xxx)で指定したforward名(xxx部分)が、struts-config.xmlのAction定義に間違いなく書かれていること。
