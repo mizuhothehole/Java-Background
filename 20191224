@@ -33,3 +33,7 @@ Japanese IT, that is very hard. I think it is with the least attraction to young
    for(var i=0; i<fs.length; i++) fs[i].rows = fs[i].rows;
 
 </script>
+
+<!DOCTYPE html 
+PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
