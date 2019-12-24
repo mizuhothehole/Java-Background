@@ -25,3 +25,11 @@ Japanese IT, that is very hard. I think it is with the least attraction to young
 使用するActionクラス内のmapping.findForward(xxx)で指定したforward名(xxx部分)が、struts-config.xmlのAction定義に間違いなく書かれていること。
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script type="text/javascript">
+
+   var fs=window.top.document.getElementsByTagName("frameset");
+
+   for(var i=0; i<fs.length; i++) fs[i].rows = fs[i].rows;
+
+</script>
