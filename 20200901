@@ -1,0 +1,16 @@
+	private Object lock = new Object();
+
+	public void func1() {
+		synchronized(lock) {
+			～
+		}
+	}
+
+	public void func2() {
+		synchronized(lock) {
+			～
+		}
+	}
+	//↑同一インスタンスのfunc1()とfunc2()を別スレッドから同時に呼び出しても、片方ずつしか実行されない。
+	//　同一インスタンスのfunc1()とfunc1()を別スレッドから呼び出すのも同様。
+	//　別インスタンスであれば、ロックオブジェクトが異なるので排他されず、同時に実行される。
