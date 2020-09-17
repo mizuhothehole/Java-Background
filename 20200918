@@ -51,3 +51,19 @@ public class App {
 
 问题是countdown能不能够完全被归零。如果没有办法归零的话。
 那么app很有可能会死掉。永远动不了。
+
+关于thread和executorservice，还有任务的序列化。
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class NewSingleThreadExecutor {
+    public static void main(String[] args) {
+        ExecutorService exec = Executors.newSingleThreadExecutor();
+        for (int i = 0; i < 5; i++) {
+            System.out.println("main(" + i + ")#submit - " + Thread.currentThread().getId());
+            exec.submit(new TestLogic(i));
+        }
+        exec.shutdown();
+    }
+}
