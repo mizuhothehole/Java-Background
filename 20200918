@@ -1,0 +1,53 @@
+https://stackoverflow.com/questions/17827022/how-is-countdownlatch-used-in-java-multithreading
+
+这个文档说明了怎么使用java里面的CountDownLatch.
+
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+class Processor implements Runnable {
+    private CountDownLatch latch;
+
+    public Processor(CountDownLatch latch) {
+        this.latch = latch;
+    }
+
+    public void run() {
+        System.out.println("Started.");
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        latch.countDown();
+    }
+}
+
+public class App {
+
+    public static void main(String[] args) {
+
+        CountDownLatch latch = new CountDownLatch(3); // coundown from 3 to 0
+
+        ExecutorService executor = Executors.newFixedThreadPool(3); // 3 Threads in pool
+
+        for(int i=0; i < 3; i++) {
+            executor.submit(new Processor(latch)); // ref to latch. each time call new Processes latch will count down by 1
+        }
+
+        try {
+            latch.await();  // wait until latch counted down to 0
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Completed.");
+    }
+
+}
+
+问题是countdown能不能够完全被归零。如果没有办法归零的话。
+那么app很有可能会死掉。永远动不了。
