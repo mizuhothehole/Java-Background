@@ -1,0 +1,46 @@
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        startActivity(new Intent(this, MainActivity2.class));
+        Log.e("TIMETIME", "" + TimeUnit.SECONDS.toMillis(10));
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        FutureTask<String> future =
+                new FutureTask<>(new Callable<String>() {
+                    public String call() {
+                        Log.e("TIMETIME", "INININ" + TimeUnit.SECONDS.toMillis(10));
+                        return "get,get,get";
+                    }
+                });
+
+        executor.execute(future);
+        try {
+            String sss = future.get();
+            Log.e("TIMETIME", "OUTOUT" + sss);
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Log.e("TIMETIME", "OUTOUT" + TimeUnit.SECONDS.toMillis(10));
+
+    }
+}
