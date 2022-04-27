@@ -1,0 +1,46 @@
+Java se 11 new features
+
+1.var is added and can only be used in local varibles. Could not be used as field or as a parameter in any methods or will come out complile error.
+2.java.lang do not need any import statetemts in java file. but java.lang.ref.* and any other sub pachages are needed to be added in to the import statements.
+3.If you do not write the package import statement of a java class it will come out to be that a default package would be used with out any name.
+4.Let me try some interesting things in 3 above:
+
+public class NewClass {
+    
+    public static void main(String[] args) {
+        System.out.println("Hello Worldaaaaa!");
+         System.out.print(new NewClass().getClass().getPackage().getName().length());
+         System.out.print(System.lineSeparator());
+         System.out.print(new Mavenproject1().getClass().getPackage().getName());
+    }
+}
+
+this shows in console:
+
+Hello Worldaaaaa!
+0
+com.se11silver.mavenproject1
+
+So, well. the default can run main method, but could not even have a name. The outside any packages can not import classes defined in  default package.
+Also, the default package could import any outside packages just if they are defined as public.
+
+5. Another interesting feature:
+The [for] word means a loop, how ever, the object must implement the [Iterable] interface in order to be looped.
+for(A;B;C), Only the B part cannot be filled with any kind of[,], which means muptiple statement.
+
+6.Also the StringBuilder created a 16 char sized capacity if it is newed by default.
+
+    /**
+     * Constructs a string builder with no characters in it and an
+     * initial capacity of 16 characters.
+     */
+    @HotSpotIntrinsicCandidate
+    public StringBuilder() {
+        super(16);
+    }
+    
+7.About the while.
+while(A) {
+B
+};
+The A part will always be executed once in any cases. This is a big trap if there is any value changed written in the A part.
