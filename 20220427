@@ -44,3 +44,28 @@ while(A) {
 B
 };
 The A part will always be executed once in any cases. This is a big trap if there is any value changed written in the A part.
+
+8. Some interest things about array.
+int [][] a = new int[][]; → This will show compile error.
+int [][] a = new int[0][]; → This is OK.
+The reason is that if the level counts of the array is ">1" then we must let compiler know the first level count.
+
+9.The clone do not do every thing in array.
+         int [][] a = new int[][]{{1,2},{1,2,3,4}};
+         var b = a.clone();
+         System.out.print(b.length);
+         System.out.print(System.lineSeparator());
+         System.out.print(b[0]);
+         System.out.print(System.lineSeparator());
+         System.out.print(a[0]);
+ 
+ So the result is 2
+[I@7382f612
+[I@7382f612
+We can know clone only copy the first level and the second level does not matter any.
+
+10. About overload
+L1 :int method1(int a, b)
+L2: double method1(int a, b)
+Hey, this will make a compile error! Because that the return value type is not involved in the signature of a method.
+So, the error message would be [The method is already defined!] or something like this.
