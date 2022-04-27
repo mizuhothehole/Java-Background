@@ -69,3 +69,25 @@ L1 :int method1(int a, b)
 L2: double method1(int a, b)
 Hey, this will make a compile error! Because that the return value type is not involved in the signature of a method.
 So, the error message would be [The method is already defined!] or something like this.
+
+11. primitive java types compostable
+... ...
+         short aaa = NewClass.method1(1);
+    }
+    
+    static char method1(int a){
+        return 1;
+    }
+
+... ...
+
+This will produce compile error! char and short are not compostable.
+
+111D
+111d
+122L
+122l
+123F
+123f
+
+All these could be right, they tell they are double, long and float.
