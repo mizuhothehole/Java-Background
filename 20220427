@@ -91,3 +91,7 @@ This will produce compile error! char and short are not compostable.
 123f
 
 All these could be right, they tell they are double, long and float.
+
+12. null is not instance of Object
+System.out.print("INSTANCE:" + (null instanceof Object));
+→This will return false!!!
