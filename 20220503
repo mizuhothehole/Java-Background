@@ -1,0 +1,29 @@
+public interface NewInterface1 {
+    default void aa(){
+        
+    };
+}
+
+abstract interface NewInterface2 {
+        default void aa(){
+        
+    };
+}
+
+public class NewClass implements NewInterface1, NewInterface2{
+    public NewClass(){}
+    
+    @Override
+    public void aa(){
+        System.out.println("FFFF!");
+    }
+    
+    
+Well, this works very well.
+
+However, this will produce an error:
+
+public class NewClass implements NewInterface1, NewInterface2{
+    public NewClass(){}
+
+This is a kind of 「稜形継承」rarely in java。
