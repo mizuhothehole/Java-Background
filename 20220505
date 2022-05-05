@@ -1,0 +1,27 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+class HelloWorld {
+    static ArrayList<String> a;
+    static {
+        a = new ArrayList<>();
+        a.add("a");
+        a.add("b");
+    }
+    public static void main(String[] args) {
+        System.out.println("Hello, World!"); 
+        HashMap<String, Integer> h = new HashMap<>();
+        h.put(HelloWorld.a.get(0), 1);
+        h.put(HelloWorld.a.get(1),33);
+        a.clear();
+       
+        a=null;
+        System.out.println(h.keySet() );
+    }
+}
+
+This outputs 
+[a,b]
